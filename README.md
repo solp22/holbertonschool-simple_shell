@@ -79,6 +79,6 @@ write (man 2 write)
 
 
 ## Authors
-Sol Puentes<a href='https://github.com/solp22'>Sol Puente Github</a>
+Sol Puente <a href='https://github.com/solp22'> Sol Puente Github</a>
 
-Marcos Perdomo<a href='https://github.com/MarcosPerdomoVaz'>Marcos Perdomo Github</a>
+Marcos Perdomo <a href='https://github.com/MarcosPerdomoVaz'> Marcos Perdomo Github</a>
