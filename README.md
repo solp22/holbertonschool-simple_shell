@@ -1,5 +1,3 @@
-# holbertonschool-simple_shell
-
 # Simple Shell Project for <a href="https://www.holbertonschool.com/">Holberton School</a>
 A simple UNIX command line interpreter(in **C** ) that reads and implements basic commands from user input.
 
@@ -81,6 +79,6 @@ write (man 2 write)
 
 
 ## Authors
-Sol Puentes      <a href='https://github.com/solp22'>Sol Puentes Github</a>
-Marcos Perdomo        <a href='https://github.com/MarcosPerdomoVaz'>Marcos Perdomo Github</a>
->>>>>>> eb1c1829068b09459bde8701db1132ec1c6a05aa
+Sol Puentes<a href='https://github.com/solp22'>Sol Puente Github</a>
+
+Marcos Perdomo<a href='https://github.com/MarcosPerdomoVaz'>Marcos Perdomo Github</a>
