@@ -8,7 +8,7 @@ void *tokenizer(char *buffer)
 {
     char *buffcopy, *token;
     char **array;
-    const char *delim = " \n";
+    const char *delim = " \n:";
     int token_counter, i = 0;
 
     buffcopy = strdup(buffer);
@@ -46,7 +46,7 @@ void *tokenizer(char *buffer)
         token = strtok(NULL, delim);
     }
     array[i] = NULL;
-    execute_command(array, token);
+    
     free (array);
     free (buffcopy);
     return (0);

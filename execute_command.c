@@ -5,11 +5,15 @@
 */
 void execute_command(char **array, char *token)
 {
-    pid_t pid = fork();
+    pid_t pid;
+    char *path_string = _getenv("PATH");
+    char *path = _which(array[0], path_string);
 
+    if (path != NULL)
+        pid = fork();
     if (pid == 0)
     {
-        if (execve(array[0], array, NULL) == -1)
+        if (execve(path, array, environ) == -1)
         {
             perror("Error");
         }
