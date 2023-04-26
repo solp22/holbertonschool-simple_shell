@@ -1,4 +1,8 @@
 #include "main.h"
+/**
+ * tokenizer - separates command given into tokens
+ * @buffer: command given
+*/
 
 void *tokenizer(char *buffer)
 {
@@ -43,5 +47,7 @@ void *tokenizer(char *buffer)
     }
     array[i] = NULL;
     execute_command(array, token);
+    free (array);
+    free (buffcopy);
     return (0);
 }

@@ -12,3 +12,7 @@ int _putchar(char c);
 void execute_command(char **array, char *token);
 void *tokenizer(char *buffer);
 char *read_line();
+const char *_getenv(const char *name);
+
+/*environ*/
+const char **environ;
