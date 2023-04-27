@@ -32,6 +32,7 @@ A simple UNIX command line interpreter(in **C** ) that reads and implements basi
 </details>
 
 <details>
+    <div>
     <summary><h3>C Functions and System calls allowed</h3></summary>
 * access (man 2 access)
 * chdir (man 2 chdir)
@@ -68,7 +69,8 @@ A simple UNIX command line interpreter(in **C** ) that reads and implements basi
 * waitpid (man 2 waitpid)
 * wait3 (man 2 wait3)
 * wait4 (man 2 wait4)
-* write (man 2 write) 
+* write (man 2 write)
+    </div>
 </details>
 
 <details>
