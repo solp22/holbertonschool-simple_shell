@@ -32,7 +32,6 @@ A simple UNIX command line interpreter(in **C** ) that reads and implements basi
 </details>
 
 <details>
-    <div>
     <summary><h3>C Functions and System calls allowed</h3></summary>
 * access (man 2 access)
 * chdir (man 2 chdir)
@@ -70,7 +69,6 @@ A simple UNIX command line interpreter(in **C** ) that reads and implements basi
 * wait3 (man 2 wait3)
 * wait4 (man 2 wait4)
 * write (man 2 write)
-    </div>
 </details>
 
 <details>
@@ -86,7 +84,8 @@ All files compiled on Ubuntu 20.04
 
     In order to test the HSH simple shell, you will need to open a terminal in a Linux distribution and go to the folder you just cloned from GitHub. In there, you will need to compile the program, which was tested in GNU GCC 5.5.0 with different error flags such as:
 
-> **-Wall:**  Enables all the warnings about constructions.
+> **-Wall
+    :**  Enables all the warnings about constructions.
 > 
 > **-Wextra:**  Enables some extra warning flags that are not enabled by  **-Wall**.
 > 
