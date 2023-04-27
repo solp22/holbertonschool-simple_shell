@@ -5,25 +5,22 @@
 */
 void execute_command(char **array, char *token)
 {
-    pid_t pid;
-    char *path_string = _getenv("PATH");
-    char *path = _which(array[0], path_string);
+	pid_t pid = fork();
 
-    if (path != NULL)
-        pid = fork();
-    if (pid == 0)
-    {
-        if (execve(path, array, environ) == -1)
-        {
-            perror("Error");
-        }
-    }
-    else if (pid < 0)
-    {
-        perror("Error");
-    }
-    else
-    {
-        waitpid(pid, NULL, 0);
-    }
+	if (pid == 0)
+	{
+		if (execve(token, array, environ) == -1)
+		{
+			perror("Error");
+			exit(1);
+		}
+	}
+	else if (pid < 0)
+	{
+		perror("Error");
+	}
+	else
+	{
+		waitpid(pid, NULL, 0);
+	}
 }

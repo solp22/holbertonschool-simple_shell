@@ -5,39 +5,49 @@
  * Return: value
 */
 
-const char *_getenv(const char *name)
+char *_getenv(const char *name)
 {
-    int i = 0;
-    const char *value = NULL;
-    int len = strlen(name);
+	int i = 0;
+	char *value = NULL;
+	int len = strlen(name);
 
-    while (environ[i])
-    {
-        if (strncmp(name, environ[i], len) == 0)
-        {
-           value = environ[i] + len + 1;
-           return (value);
-        }
-        i++;
-    }
-    return (NULL);
+	while (environ[i])
+	{
+		if (strncmp(name, environ[i], len) == 0)
+		{
+			value = environ[i] + len + 1;
+			return (value);
+		}
+		i++;
+	}
+	return (NULL);
 }
+/**
+ * _which - check if command exists and shwo its path
+ * @command: command input
+ * @path: full value of env variable PATH
+*/
 
-char **_which (char *command, char *argument)
+char *_which(char *command, char *path)
 {
-    char *path, *dirs;
-    int i = 0;
+	char *value = NULL;
+	char **dirs = NULL;
+	int i = 0;
 
-    dirs = tokenizer(command);
-    while (dirs[i] != NULL)
-    {
-        sprintf(path, "%s/%s", dirs[i], argument);
-        if (access(path, F_OK) == 0)
-        {
-            return (path);
-        }
-        i++;
-    }
-    perror("Error");
-    return (NULL);
+	dirs = tokenizer(path, ":");
+	value = malloc(sizeof(char) + strlen(command) + strlen(dirs[0]) + 2);
+	if (value == NULL)
+	{
+		printf("Error");
+		exit(1);
+	}
+	while (dirs[i] != NULL)
+	{
+		sprintf(value, "%s/%s", dirs[i], command);
+		if (access(value, F_OK) == 0)
+			return (value);
+		i++;
+	}
+	free(value);
+	return (NULL);
 }
