@@ -1,3 +1,6 @@
+#ifndef MAIN_H
+#define MAIN_H
+
 /*libraries*/
 #include <unistd.h>
 #include <stdio.h>
@@ -9,5 +12,12 @@
 
 /*prototypes*/
 void execute_command(char **array, char *token);
-void *tokenizer(char *buffer);
-char *read_line();
+char **tokenizer(char *buffer, char *delim);
+char *_getenv(const char *name);
+char *_which(char *command, char *argument);
+void free_array(char **array);
+
+/*environ*/
+extern char **environ;
+
+#endif
