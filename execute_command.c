@@ -17,6 +17,6 @@ void execute_command(char **array, char *token)
     }
     else
     {
-        waitpid(childpid, NULL, 0);
+        wait((int)childpid);
     }
 }

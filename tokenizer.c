@@ -7,6 +7,8 @@ void *tokenizer(char *buffer)
     const char *delim = " \n";
     int token_counter, i = 0;
 
+    
+
     buffcopy = strdup(buffer);
     if (buffcopy == NULL)
     {

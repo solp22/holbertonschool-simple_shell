@@ -11,3 +11,6 @@
 void execute_command(char **array, char *token);
 void *tokenizer(char *buffer);
 char *read_line();
+void env(void);
+int exitty(void);
+

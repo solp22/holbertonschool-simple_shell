@@ -6,6 +6,9 @@ char *read_line()
     size_t bufsize = 0;
     int chars_read = 0;
 
+    if (!isatty(fileno(stdout)))
+        return (-1);
+    
     buffer = malloc(sizeof(bufsize));
     if (buffer == NULL)
     {   free(buffer);
