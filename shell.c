@@ -22,9 +22,12 @@ int main(void)
 			exit(0);
 		}
 		buffer[chars_read - 1] = '\0';
-		if (command == NULL)
-			continue;
 		command = tokenizer(buffer, " \t");
+		if (command[0] == NULL)
+		{
+			free(command);
+			continue;
+		}
 		if (strcmp(command[0], "exit") == 0)
 		{
 			free(buffer);
