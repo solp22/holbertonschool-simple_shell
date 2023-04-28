@@ -3,7 +3,7 @@
  * _getenv - get variable value from environ
  * @name: name of variable to get
  * Return: value
-*/
+ */
 
 char *_getenv(const char *name)
 {
@@ -28,13 +28,13 @@ char *_getenv(const char *name)
  * @command: command input
  * @path: full value of env variable PATH
  * Return: NULL if it fails, path if success
-*/
+ */
 char *_which(char *command, char *path)
 {
 	char *value = NULL;
 	char **dirs = NULL;
 	int i = 0;
-	
+
 	dirs = tokenizer(path, ":");
 	value = malloc(sizeof(char) + strlen(command) + strlen(dirs[0]) + 2);
 	if (value == NULL)
