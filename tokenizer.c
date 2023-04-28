@@ -3,10 +3,6 @@
  * tokenizer - separates command given into tokens
  * @buffer: command given
  * @delim: delimiter
-<<<<<<< HEAD
-=======
- *
->>>>>>> 1e698e8f860c4f856500455c092c187ba088ce43
  * Return: pointer to array of tokens
 */
 char **tokenizer(char *buffer, char *delim)

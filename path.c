@@ -27,11 +27,7 @@ char *_getenv(const char *name)
  * _which - check if command exists and shwo its path
  * @command: command input
  * @path: full value of env variable PATH
-<<<<<<< HEAD
  * Return: NULL if it fails, path if success
-=======
- * Return: always NULL
->>>>>>> 1e698e8f860c4f856500455c092c187ba088ce43
 */
 char *_which(char *command, char *path)
 {
