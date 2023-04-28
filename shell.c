@@ -20,7 +20,8 @@ int main(void)
 	while (1)
 	{
 		printf("$ ");
-		chars_read = getline(&buffer, &bufsize, stdin); /* chars_read -> buffer size */
+		/* chars_read -> buffer size */
+		chars_read = getline(&buffer, &bufsize, stdin);
 		if (chars_read == -1)
 		{
 			printf("Exiting...\n");
@@ -29,7 +30,15 @@ int main(void)
 		}
 		buffer[chars_read - 1] = '\0';
 		command = tokenizer(buffer, " \t");
-		path_string = strdup(_getenv("PATH")); 
+
+		if (strcmp(command[0], "exit") == 0)
+		{
+			free(buffer);
+			free(command);
+			exit(0);
+		}
+
+		path_string = strdup(_getenv("PATH"));
 		path = _which(command[0], path_string);
 		execute_command(command, path);
 	}

@@ -2,6 +2,9 @@
 /**
  * tokenizer - separates command given into tokens
  * @buffer: command given
+ * @delim: delimiter
+ *
+ * Return: pointer to array of tokens
 */
 char **tokenizer(char *buffer, char *delim)
 {
