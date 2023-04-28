@@ -1,9 +1,8 @@
 #include "main.h"
 /**
  * main - connect functions for the shell
- * Return: 1
+ * Return: 0
 */
-
 int main(void)
 {
 	char *buffer = NULL, *path = NULL, *path_string = NULL;
@@ -19,27 +18,31 @@ int main(void)
 	}
 	while (1)
 	{
-		printf("$ ");
+		if (isatty(fileno(stdin)))
+			printf("★ ");
 		/* chars_read -> buffer size */
 		chars_read = getline(&buffer, &bufsize, stdin);
 		if (chars_read == -1)
 		{
-			printf("Exiting...\n");
 			free(buffer);
 			exit(1);
 		}
 		buffer[chars_read - 1] = '\0';
 		command = tokenizer(buffer, " \t");
-
 		if (strcmp(command[0], "exit") == 0)
 		{
 			free(buffer);
-			free(command);
+			free_array(command);
 			exit(0);
 		}
-
 		path_string = strdup(_getenv("PATH"));
 		path = _which(command[0], path_string);
+		if (path == NULL)
+			perror("Error");
 		execute_command(command, path);
+		free_array(command);
+		free(path);
+		free(path_string);
 	}
+	return (0);
 }
