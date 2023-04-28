@@ -12,12 +12,8 @@ int main(void)
 
 	while (1)
 	{
-<<<<<<< HEAD
 		if (isatty(fileno(stdin)))
 			printf("★ ");
-=======
-		printf("$ ");
->>>>>>> 1e698e8f860c4f856500455c092c187ba088ce43
 		/* chars_read -> buffer size */
 		chars_read = getline(&buffer, &bufsize, stdin);
 		if (chars_read == -1)
@@ -27,23 +23,12 @@ int main(void)
 		}
 		buffer[chars_read - 1] = '\0';
 		command = tokenizer(buffer, " \t");
-<<<<<<< HEAD
 		if (strcmp(command[0], "exit") == 0)
 		{
 			free(buffer);
 			free_array(command);
 			break;
 		}
-=======
-
-		if (strcmp(command[0], "exit") == 0)
-		{
-			free(buffer);
-			free(command);
-			exit(0);
-		}
-
->>>>>>> 1e698e8f860c4f856500455c092c187ba088ce43
 		path_string = strdup(_getenv("PATH"));
 		path = _which(command[0], path_string);
 		if (path == NULL)
@@ -53,8 +38,5 @@ int main(void)
 		free(path);
 		free(path_string);
 	}
-<<<<<<< HEAD
 	return (0);
-=======
->>>>>>> 1e698e8f860c4f856500455c092c187ba088ce43
 }
