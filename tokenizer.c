@@ -2,6 +2,8 @@
 /**
  * tokenizer - separates command given into tokens
  * @buffer: command given
+ * @delim: delimiter
+ * Return: pointer to array of tokens
 */
 char **tokenizer(char *buffer, char *delim)
 {
@@ -34,7 +36,7 @@ char **tokenizer(char *buffer, char *delim)
 		array[i] = strdup(tokendup);
 		if (array[i] == NULL)
 		{
-			/*make function to free array*/
+			free_array(array);
 			exit(1);
 		}
 		tokendup = strtok(NULL, delim);

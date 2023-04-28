@@ -1,7 +1,8 @@
 #include "main.h"
 /**
- * execute_comand - executes the command given
+ * execute_command - executes the command given
  * @array: array of tokens from the command
+ * @token: pointer to token
 */
 void execute_command(char **array, char *token)
 {
