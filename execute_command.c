@@ -22,6 +22,8 @@ void execute_command(char **array, char *token)
 	}
 	else
 	{
-		waitpid(pid, NULL, 0);
+		intptr_t pidint = (intptr_t)pid;
+
+		wait((int *)pidint);
 	}
 }
