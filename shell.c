@@ -19,7 +19,7 @@ int main(void)
 		if (chars_read == -1)
 		{
 			free(buffer);
-			exit(1);
+			exit(0);
 		}
 		buffer[chars_read - 1] = '\0';
 		command = tokenizer(buffer, " \t");
