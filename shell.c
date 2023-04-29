@@ -56,6 +56,8 @@ int main(void)
 		{
 			pathdup = strdup(path_string);
 			path = _which(command[0], pathdup);
+			if (path == NULL)
+				perror("Error");
 			execute_command(command, path);
 			free(pathdup);
 			free(path);
