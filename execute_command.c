@@ -4,25 +4,26 @@
  * @array: array of tokens from the command
  * @token: pointer to token
 */
-void execute_command(char **array, char *token)
+int execute_command(char **array, char *token)
 {
+	int status;
 	pid_t pid = fork();
 
 	if (pid == 0)
-	{
-		if (execve(token, array, environ) == -1)
-		{
-			perror("Error");
-			exit(1);
-		}
-	}
+		exit (execve(token, array, environ));
 	else if (pid < 0)
 	{
 		perror("Error");
+		return (1);
 	}
 	else
 	{
-		waitpid(pid, NULL, 0);
+		waitpid(pid, &status, 0);
+
+		if (status != 0)
+			perror("Error");
+
+		return (WEXITSTATUS(status));
 	}
 }
 
@@ -30,25 +31,26 @@ void execute_command(char **array, char *token)
  * execute_command_ap - executes the command given an absolute path
  * @array: array of tokens from the command
 */
-void execute_command_ap(char **array)
+int execute_command_ap(char **array)
 {
+	int status;
 	pid_t pid = fork();
 
 	if (pid == 0)
-	{
-		if (execv(array[0], array) == -1)
-		{
-			perror("Error");
-			exit(1);
-		}
-	}
+		exit (execv(array[0], array));
 	else if (pid < 0)
 	{
 		perror("Error");
+		return (1);
 	}
 	else
 	{
-		waitpid(pid, NULL, 0);
+		waitpid(pid, &status, 0);
+
+		if (status != 0)
+			perror("Error");
+
+		return (WEXITSTATUS(status));
 	}
 }
 
