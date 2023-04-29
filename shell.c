@@ -42,6 +42,7 @@ int main(void)
 		if (command[0] == NULL)
 		{
 			free(command);
+			free(line);
 			continue;
 		}
 		if (strcmp(command[0], "exit") == 0)
