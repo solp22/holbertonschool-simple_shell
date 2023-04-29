@@ -1,10 +1,11 @@
 #include "main.h"
 /**
- * main - connect functions for the shell
- * Return: 0
+ * buf_command - connect functions for the shell
+ * @chars_read: lenght of buffer
+ * @buffer: input
+ * Return: status
 */
-
-int buf_command (int chars_read, char *buffer)
+int buf_command(int chars_read, char *buffer)
 {
 	char **command = NULL;
 	char *path = NULL, *path_string = NULL;
@@ -29,6 +30,10 @@ int buf_command (int chars_read, char *buffer)
 	return (0);
 }
 
+/**
+ * main - connect functions for the shell
+ * Return: 0
+*/
 int main(void)
 {
 	char *buffer = NULL;
@@ -41,7 +46,6 @@ int main(void)
 		perror("Error");
 		exit(1);
 	}
-
 	/* non-interactive mode */
 	if (!isatty(fileno(stdin)))
 	{
@@ -57,7 +61,6 @@ int main(void)
 			return (status);
 		}
 	}
-
 	/* interactive mode */
 	while (1)
 	{
