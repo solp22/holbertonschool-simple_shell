@@ -19,10 +19,6 @@ int execute_command(char **array, char *token)
 	else
 	{
 		waitpid(pid, &status, 0);
-
-		if (status != 0)
-			perror("Error");
-
 		return (WEXITSTATUS(status));
 	}
 }
@@ -46,10 +42,6 @@ int execute_command_ap(char **array)
 	else
 	{
 		waitpid(pid, &status, 0);
-
-		if (status != 0)
-			perror("Error");
-
 		return (WEXITSTATUS(status));
 	}
 }

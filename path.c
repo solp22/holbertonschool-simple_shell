@@ -58,5 +58,6 @@ char *_which(char *command, char *path)
 	}
 	free(value);
 	free_array(dirs);
+	perror("Error: ");
 	return (NULL);
 }
