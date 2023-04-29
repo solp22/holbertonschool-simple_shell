@@ -41,6 +41,7 @@ int main(void)
 			char *pathdup = strdup(path_string);
 			path = _which(command[0], pathdup);
 			execute_command(command, path);
+			free(pathdup);
 			free(path);
 		}
 		else
