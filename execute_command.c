@@ -51,3 +51,4 @@ void execute_command_ap(char **array)
 		waitpid(pid, NULL, 0);
 	}
 }
+
