@@ -13,6 +13,7 @@
 /*prototypes*/
 int _putchar(char c);
 void execute_command(char **array, char *token);
+void execute_command_ap(char **array);
 char **tokenizer(char *buffer, char *delim);
 char *_getenv(const char *name);
 char *_which(char *command, char *argument);

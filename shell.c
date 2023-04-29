@@ -34,13 +34,19 @@ int main(void)
 			free_array(command);
 			break;
 		}
-		path_string = strdup(_getenv("PATH"));
-		path = _which(command[0], path_string);
-		
-		execute_command(command, path);
+
+		path_string = getenv("PATH");
+		if (path_string != NULL)
+		{
+			char *pathdup = strdup(path_string);
+			path = _which(command[0], pathdup);
+			execute_command(command, path);
+			free(path);
+		}
+		else
+			execute_command_ap(command);
 
 		free_array(command);
-		free(path);
 		free(path_string);
 	}
 	return (0);

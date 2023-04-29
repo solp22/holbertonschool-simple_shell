@@ -10,21 +10,36 @@ void execute_command(char **array, char *token)
 
 	if (pid == 0)
 	{
-		if (token == NULL)
+		if (execve(token, array, environ) == -1)
 		{
-			if (execv(array[0], array) == -1)
-			{
-				perror("Error");
-				exit(1);
-			}
+			perror("Error");
+			exit(1);
 		}
-		else
+	}
+	else if (pid < 0)
+	{
+		perror("Error");
+	}
+	else
+	{
+		waitpid(pid, NULL, 0);
+	}
+}
+
+/**
+ * execute_command_ap - executes the command given an absolute path
+ * @array: array of tokens from the command
+*/
+void execute_command_ap(char **array)
+{
+	pid_t pid = fork();
+
+	if (pid == 0)
+	{
+		if (execv(array[0], array) == -1)
 		{
-			if (execve(token, array, environ) == -1)
-			{
-				perror("Error");
-				exit(1);
-			}
+			perror("Error");
+			exit(1);
 		}
 	}
 	else if (pid < 0)
