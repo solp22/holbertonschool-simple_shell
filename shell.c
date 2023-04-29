@@ -48,7 +48,6 @@ int main(void)
 			execute_command_ap(command);
 
 		free_array(command);
-		free(path_string);
 	}
 	return (0);
 }
