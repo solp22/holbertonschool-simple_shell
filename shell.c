@@ -34,6 +34,7 @@ int main(void)
 {
 	char *line = NULL, *path = NULL, *path_string = NULL, *pathdup = NULL;
 	char **command = NULL;
+	int status = 0;
 
 	while (1)
 	{
@@ -49,21 +50,19 @@ int main(void)
 		{
 			free(line);
 			free_array(command);
-			break;
+			return (status);
 		}
 		path_string = getenv("PATH");
 		if (path_string != NULL)
 		{
 			pathdup = strdup(path_string);
 			path = _which(command[0], pathdup);
-			if (path == NULL)
-				perror("Error");
-			execute_command(command, path);
+			status = execute_command(command, path);
 			free(pathdup);
 			free(path);
 		}
 		else
-			execute_command_ap(command);
+			status = execute_command_ap(command);
 		free(line);
 		free_array(command);
 	}
