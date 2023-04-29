@@ -10,10 +10,21 @@ void execute_command(char **array, char *token)
 
 	if (pid == 0)
 	{
-		if (execve(token, array, environ) == -1)
+		if (token == NULL)
 		{
-			perror("Error");
-			exit(1);
+			if (execv(array[0], array) == -1)
+			{
+				perror("Error");
+				exit(1);
+			}
+		}
+		else
+		{
+			if (execve(token, array, environ) == -1)
+			{
+				perror("Error");
+				exit(1);
+			}
 		}
 	}
 	else if (pid < 0)

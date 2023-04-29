@@ -36,10 +36,8 @@ int main(void)
 		}
 		path_string = strdup(_getenv("PATH"));
 		path = _which(command[0], path_string);
-		if (path == NULL)
-			perror("Error");
-		else
-			execute_command(command, path);
+		
+		execute_command(command, path);
 
 		free_array(command);
 		free(path);
