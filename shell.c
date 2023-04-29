@@ -38,7 +38,9 @@ int main(void)
 		path = _which(command[0], path_string);
 		if (path == NULL)
 			perror("Error");
-		execute_command(command, path);
+		else
+			execute_command(command, path);
+
 		free_array(command);
 		free(path);
 		free(path_string);
