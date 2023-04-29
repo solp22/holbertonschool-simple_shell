@@ -55,18 +55,20 @@
   <p>To use this shell clone this repository and compile the files in the following way:</p>
   
   ```
+  git clone https://github.com/solp22/holbertonschool-simple_shell.git
+  ```
+  
+  ```
   gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
   ```
   
-  <p>Using interatcive mode it should work this way:</p>
+  <p>Using interactive mode it should work this way:</p>
   
   ```
   $ ./hsh
   ★ /bin/ls
   hsh main.c shell.c
   ★
-  ★ exit
-  $
   ```
   
   <p>And using non-interactive mode it should work this way:</p>
@@ -85,23 +87,67 @@
   $
   ```
   
+  <h3>Built-ins</h3>
+  <p>You can type 'exit' to exit the shell like so:</p>
+  
+  ```
+  $ ./hsh
+  ★ exit
+  $
+  ```
+  
+  <p>And you can also type 'env' to print a list of all current environment variables:</p>
+  
+  ```
+  $ ./hsh
+  ★ env
+  HOSTNAME=41e118c3a4d9
+  LANGUAGE=en_US:en
+  PWD=/holbertonschool-simple_shell
+  TZ=America/Los_Angeles
+  HOME=/root
+  LANG=en_US.UTF-8
+  LESSCLOSE=/usr/bin/lesspipe %s %s
+  TERM=xterm
+  LESSOPEN=| /usr/bin/lesspipe %s
+  SHLVL=1
+  LC_ALL=en_US.UTF-8
+  PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+  OLDPWD=/
+  _=./hsh
+  ★
+  ```
+  
 </details>
 
 <details>
 <summary><h2>Files</h2></summary>
 
 ### [shell.c](/shell.c/)
+<p align="justify">This file contains the main code of the shell. It reads the input given and passes it to the other functions to be tokenized, handle the command's path and finally, being executed. It also handles cases such as the exit built-in, sending a NULL input, and giving a NULL path.</p>
 
 ### [path.c](/path.c/)
+This file contains the functions that are vital for handling the path.
+<ul>
+  <li><b>_getenv</b> - This function searches for an environment variable by iterating through the environ array and comparing each element to the specified string. If a match is found, the function returns a pointer to the value of the variable. If no match is found, the function returns NULL.</li>
+  <li><b>_which</b> - This function tokenizes the path's value and stores it in an array. It then appends the command to each directory to find which is the correct path for executing the command, it it finds an executable path it returns the value, if not, it returns NULL.</li>
+</ul>
 
 ### [tokenizer.c](/tokenizer.c/)
+This file contains a function that is in charge of tokenizing strings depending on the delimiter given, and returns an array with each token.
 
 ### [execute_command.c](/execute_command.c/)
+This file has the functions that will enable the command to be executed.
+<ul>
+  <li><b>execute_command</b> - executes the command by using the fork system call to create a child process and then calling the execve function. The parent function will simply wait for the child to finish its process by using the system call waitpid.
+  <li><b>execute_command_ap</b> - handles the execution of a command when the absolute path is given.
+</ul>
 
 ### [free_array.c](/free_array.c/)
+This file has a simple function to free an array and make it easier to save lines of code.
 
 ### [main.h](/main.h/)
-
+This file contains all the libraries used, as well as the environ variable and the prototypes of each function.
 </details>
 
 <p align="center">Authors:</p>
