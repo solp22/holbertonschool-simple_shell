@@ -55,6 +55,7 @@ int main(void)
 		if (strcmp(command[0], "env") == 0)
 		{
 			print_env();
+			return (0);
 		}
 		path_string = getenv("PATH");
 		if (path_string != NULL)
