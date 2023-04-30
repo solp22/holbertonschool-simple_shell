@@ -46,28 +46,30 @@ int main(void)
 			free(line);
 			continue;
 		}
-		if (strcmp(command[0], "exit") == 0)
+		else if (strcmp(command[0], "exit") == 0)
 		{
 			free(line);
 			free_array(command);
 			return (status);
 		}
-		if (strcmp(command[0], "env") == 0)
+		else if (strcmp(command[0], "env") == 0)
 		{
 			print_env();
-			return (0);
-		}
-		path_string = getenv("PATH");
-		if (path_string != NULL)
-		{
-			pathdup = strdup(path_string);
-			path = _which(command[0], pathdup);
-			status = execute_command(command, path);
-			free(pathdup);
-			free(path);
 		}
 		else
-			status = execute_command_ap(command);
+		{
+			path_string = getenv("PATH");
+			if (path_string != NULL)
+			{
+				pathdup = strdup(path_string);
+				path = _which(command[0], pathdup);
+				status = execute_command(command, path);
+				free(pathdup);
+				free(path);
+			}
+			else
+				status = execute_command_ap(command);
+		}
 		free(line);
 		free_array(command);
 	}
