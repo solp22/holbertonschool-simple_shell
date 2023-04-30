@@ -131,6 +131,7 @@ This file contains the functions that are vital for handling the path.
 <ul>
   <li><b>_getenv</b> - This function searches for an environment variable by iterating through the environ array and comparing each element to the specified string. If a match is found, the function returns a pointer to the value of the variable. If no match is found, the function returns NULL.</li>
   <li><b>_which</b> - This function tokenizes the path's value and stores it in an array. It then appends the command to each directory to find which is the correct path for executing the command, it it finds an executable path it returns the value, if not, it returns NULL.</li>
+  <li><b>print_env</b> - This function is in charge of the env built-in. When the user passes 'env', the shell prints a list of all current environment variables.</li>
 </ul>
 
 ### [tokenizer.c](/tokenizer.c/)
