@@ -64,9 +64,10 @@ char *_which(char *command, char *path)
 /**
  * print_env - print environment
  */
-void print_env (void)
+void print_env(void)
 {
 	int i = 0;
-	while(environ[i]) 
-		printf("%s\n", environ[i++]); 
+
+	while (environ[i])
+		printf("%s\n", environ[i++]);
 }

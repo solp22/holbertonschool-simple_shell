@@ -3,6 +3,7 @@
  * execute_command - executes the command given
  * @array: array of tokens from the command
  * @token: pointer to token
+ * Return: error code
 */
 int execute_command(char **array, char *token)
 {
@@ -10,7 +11,7 @@ int execute_command(char **array, char *token)
 	pid_t pid = fork();
 
 	if (pid == 0)
-		exit (execve(token, array, environ));
+		exit(execve(token, array, environ));
 	else if (pid < 0)
 	{
 		perror("Error");
@@ -26,6 +27,7 @@ int execute_command(char **array, char *token)
 /**
  * execute_command_ap - executes the command given an absolute path
  * @array: array of tokens from the command
+ * Return: error code
 */
 int execute_command_ap(char **array)
 {
@@ -33,7 +35,7 @@ int execute_command_ap(char **array)
 	pid_t pid = fork();
 
 	if (pid == 0)
-		exit (execv(array[0], array));
+		exit(execv(array[0], array));
 	else if (pid < 0)
 	{
 		perror("Error");
