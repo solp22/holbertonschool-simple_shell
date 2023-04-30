@@ -153,7 +153,9 @@ This file contains all the libraries used, as well as the environ variable and t
 
 <details>
 <summary><h2>Flowchart</h2></summary>
+
 ![Untitled Diagram](https://user-images.githubusercontent.com/124692695/235331964-c175bbee-2b55-4048-885b-a8cc8af0ee58.jpg)
+
 </details>
 
 <p align="center">Authors:</p>
