@@ -42,6 +42,8 @@ int execute_command_ap(char **array)
 	else
 	{
 		waitpid(pid, &status, 0);
+		if (status != 0)
+			perror("Error");
 		return (WEXITSTATUS(status));
 	}
 }
