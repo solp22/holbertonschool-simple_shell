@@ -52,6 +52,10 @@ int main(void)
 			free_array(command);
 			return (status);
 		}
+		if (strcmp(command[0], "env") == 0)
+		{
+			print_env();
+		}
 		path_string = getenv("PATH");
 		if (path_string != NULL)
 		{

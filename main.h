@@ -18,6 +18,7 @@ char **tokenizer(char *buffer, char *delim);
 char *_getenv(const char *name);
 char *_which(char *command, char *argument);
 void free_array(char **array);
+void print_env(void);
 
 /*environ*/
 extern char **environ;

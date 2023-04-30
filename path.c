@@ -4,7 +4,6 @@
  * @name: name of variable to get
  * Return: value
  */
-
 char *_getenv(const char *name)
 {
 	int i = 0;
@@ -60,4 +59,14 @@ char *_which(char *command, char *path)
 	free_array(dirs);
 	perror("Error: ");
 	return (NULL);
+}
+
+/**
+ * print_env - print environment
+ */
+void print_env (void)
+{
+	int i = 0;
+	while(environ[i]) 
+		printf("%s\n", environ[i++]); 
 }
